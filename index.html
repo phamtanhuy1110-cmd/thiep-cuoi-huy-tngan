@@ -265,6 +265,52 @@
   <div class="thanks">
     <p style="padding-left: 60px;">Chúng tôi vô cùng hạnh phúc khi được chia sẻ khoảnh khắc đặc biệt này với bạn.  
     Sự hiện diện của bạn chính là niềm vinh hạnh lớn nhất của chúng tôi 💕</p>
+    <!-- Countdown Timer -->
+<div id="countdown">
+  <span id="days">0</span> Ngày 
+  <span id="hours">0</span> Giờ 
+  <span id="minutes">0</span> Phút 
+  <span id="seconds">0</span> Giây
+</div>
+
+<style>
+  #countdown {
+    font-size: 20px;
+    font-weight: bold;
+    color: #b33c00;
+    text-align: center;
+    margin: 20px 0;
+  }
+  #countdown span {
+    display: inline-block;
+    min-width: 60px;
+  }
+</style>
+
+<script>
+  // Chỉnh ngày cưới ở đây
+  const weddingDate = new Date("Dec 20, 2025 18:00:00").getTime();
+
+  setInterval(function() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+
+    if (distance < 0) {
+      document.getElementById("countdown").innerHTML = "Chúc Mừng Ngày Trọng Đại 🎉";
+    }
+  }, 1000);
+</script>
+
   </div>
 
   <footer style="font-size: 20px;">
